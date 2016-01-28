@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body id="page1">
+	<form class="form-horizontal" th:object="${classified}"
+		th:action="@{/user/addclassifieds}" method="post">
+		<legend class="top-legend">Enter Classified Information</legend>
+		<fieldset>
+			<table class="top-tab">
+				<tr>
+					<td class="label">Room Type :</td>
+					<td class="field"><select th:field="*{roomType}"
+						name="roomType" id="roomType" class="infobox">
+							<option value="0">Select Your Room Type</option>
+							<option th:each="room : ${roomType}" th:value="${room}"
+								th:text="${room}">Select State</option>
+					</select></td>
+
+					<td class="label">Room Rent :</td>
+					<td class="field"><input name="rent" type="text"
+						class="infobox" size="20" th:field="*{rent}" /></td>
+				</tr>
+				<tr>
+					<td class="label">Contact Person :</td>
+					<td class="field"><input name="contactperson" type="text"
+						class="infobox" size="20" th:field="*{contactPerson}" /></td>
+					<td class="label">Mobile :</td>
+					<td class="field"><input name="mobile" type="text"
+						class="infobox" size="20" th:field="*{mobile}" /></td>
+				</tr>
+				<tr>
+					<td class="label">Address</td>
+					<td class="field"><textarea name="address" class="infobox"
+							cols="19" th:field="*{address}"></textarea></td>
+					<td class="label">Description :</td>
+					<td class="field"><textarea cols="19" class="infobox"
+							th:field="*{description}"></textarea></td>
+				</tr>
+				<tr>
+					<td class="label">State :</td>
+					<td class="field"><select th:field="*{state}" id="state"
+						onChange="onstatechange(this)" class="infobox">
+							<option value="0">Select Your State</option>
+							<option th:each="st : ${state}" th:value="${st.state_id}"
+								th:text="${st.state_name}">Select State</option>
+					</select></td>
+					<td class="label">Distric :</td>
+					<td class="field"><select th:field="*{distt}" id="dist"
+						onChange="ondistchange(this)" class="infobox">
+							<option value="0">Select Your District</option>
+							<option th:each="dis : ${distt}" th:value="${dis.distt_id}"
+								th:text="${dis.distt_name}">Select District</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="label">City :</td>
+					<td class="field"><select th:field="*{city}" id="city"
+						onChange="ondistchange(this)" class="infobox">
+							<option value="0">Select Your city</option>
+							<option th:each="ci : ${city}" th:value="${ci}" th:text="${ci}">Select
+								city</option>
+					</select></td>
+					<td class="label">Pin Code :</td>
+					<td class="field"><input name="pin" type="text" id="pin"
+						class="infobox" th:field="*{pin}" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td colspan="2" class="field"></td>
+				</tr>
+			</table>
+		</fieldset>
+
+		<span class="button_position"><input class="button"
+			type="submit" value="Submit" /> </span>
+
+	</form>
+</body>
+</html>

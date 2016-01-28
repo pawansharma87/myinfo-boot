@@ -1,0 +1,24 @@
+.ui-tabs .ui-tabs-nav {
+	background: orange;
+	width: 818px;
+}
+
+.ui-tabs .ui-tabs-panel /* just in case you want to change the panel */
+	{
+	background: gray;
+	border-width: 0px 0px 1px 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	margin: 0em 0.1em 0.2em 0.2em;
+	width: 780px;
+	height: 255px;
+}
+
+.ui-tabs {
+	width: 825px;
+	height: 322px;
+	padding: .1em;
+	margin: 0em 0.1em 0.2em 0.2em;
+	zoom: 1;
+	font-size: 14px;
+	}

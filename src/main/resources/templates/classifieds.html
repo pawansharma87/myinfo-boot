@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- 
+<title>Home</title>
+<th:block th:include="fragments/links :: head"></th:block>
+<link rel="stylesheet" href="../../static/css/hometab.css"
+	th:href="@{/css/hometab.css}" /> -->
+</head>
+<body id="page1">
+	<div id="profile_form"></div>
+	<div id="tablediv">
+		<article class="col2 pad_left1">
+			<h3>List Of Classifieds</h3>
+			<div class="wrapper under">
+				<div th:if="${not #lists.isEmpty(classifieds)}">
+					<b th:each="classified : ${classifieds}">
+					
+
+						<!-- 						<div class="listbox"> -->
+
+						<table class="list" width="800px">
+							<tr>
+								<th colspan="2"><h2 th:text="${classified.roomType}"></h2></th>
+							</tr>
+							<tr>
+								<td>Contact Person:</td>
+								<td><b th:text="${classified.contactPerson}"></b></td>
+							</tr>
+
+							<tr>
+								<td>Room Rent:</td>
+								<td><b th:text="${classified.rent}"></b></td>
+							</tr>
+							<tr>
+								<td>Description:</td>
+								<td><b th:text="${classified.description}"></b></td>
+							</tr>
+							<tr>
+								<td>Address:</td>
+								<td><b th:text="${classified.address}"></b></td>
+							</tr>
+							<tr>
+								<td>Mobile No.:</td>
+								<td><b th:text="${classified.mobile}"></b></td>
+							</tr>
+						</table>
+						<!-- <b><a
+								th:href="${'/user/classifieds/' + classified.classified_id}">View
+									Detail</a> <a id="editclassified"
+								th:href="${'/user/classifieds/edit/' + classified.classified_id}">Edit</a>
+								<a
+								th:href="${'/user/classifieds/delete/' + classified.classified_id}">Delete</a></b>
+							-->
+						</b>
+					</div>
+				</div>
+		</article>
+	</div>
+</body>
+</html>

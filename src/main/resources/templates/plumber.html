@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body id="page1">
+	<form class="form-horizontal" th:action="@{/user/addplumber}" method="post">
+		<legend class="top-legend">Enter Personal Information</legend>
+		<fieldset>
+			<table class="top-tab">
+				<tr>
+					<td class="label">Name :</td>
+					<td class="field"><input name="contactperson" type="text"
+						class="infobox" size="30" /></td>
+
+					<td class="label">Work Type :</td>
+					<td class="field"><select th:field="*{engType}" id="eng"
+					onChange="ondistchange(this)" class="infobox">
+						<option value="0">Select Your Work</option>
+						<option th:each="eng : ${engType}" th:value="${eng.key}" th:text="${eng.value}">Select
+							city</option>
+				</select>
+				</td>
+				</tr>
+				<tr>
+					<td class="label">Mobile :</td>
+					<td class="field"><input name="mobile" type="text"
+						class="infobox" size="30" /></td>
+						
+					<td class="label"></td>
+					<td class="field"></td>
+				</tr>
+				<tr>
+					<td class="label">Address</td>
+					<td class="field"><textarea name="address" class="infobox"
+							cols="30" ></textarea></td>
+					<td class="label">Description :</td>
+					<td class="field"><textarea cols="30" class="infobox"
+							></textarea></td>
+				</tr>
+				<tr>
+					<td class="label">State :</td>
+					<td class="field"><select th:field="*{state}" id="state"
+						onChange="onstatechange(this)" class="infobox">
+							<option value="0">Select Your State</option>
+							<option th:each="st : ${state}" th:value="${st.state_id}"
+								th:text="${st.state_name}">Select State</option>
+					</select></td>
+					<td class="label">Distric :</td>
+					<td class="field"><select th:field="*{distt}" id="dist"
+						onChange="ondistchange(this)" class="infobox">
+							<option value="0">Select Your District</option>
+							<option th:each="dis : ${distt}" th:value="${dis.distt_id}"
+								th:text="${dis.distt_name}">Select District</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="label">City :</td>
+					<td class="field"><select th:field="*{city}" id="city"
+						onChange="ondistchange(this)" class="infobox">
+							<option value="0">Select Your city</option>
+							<option th:each="ci : ${city}" th:value="${ci}" th:text="${ci}">Select
+								city</option>
+					</select></td>
+					<td class="label">Pin Code :</td>
+					<td class="field"><input name="pin" type="text" id="pin"
+						class="infobox" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td colspan="2" class="field"><span class="button_position"><input
+							class="button" type="submit" value="Submit" /> </span></td>
+				</tr>
+			</table>
+		</fieldset>
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+<th:block th:include="fragments/links :: head"></th:block>
+<link rel="stylesheet" href="../../static/css/hometab.css"
+	th:href="@{/css/hometab.css}" />
+</head>
+<body id="page1">
+	<div class="extra">
+		<div class="main">
+			<!-- header -->
+			<th:block th:include="fragments/headerlogin :: header"></th:block>
+			<!-- / header -->
+			<!-- content -->
+			<section id="content">
+				<div id="content1"></div>
+				<div id="content2">
+					<article class="col1">
+						<h3><b th:inline="text"
+							style="font-size: 20px; color: orange; padding-left: 10px;">
+							[[${#httpServletRequest.remoteUser}]]!</b></h3>
+						<div class="pad" th:fragment="menu">
+						<a style="text-align: center;padding-left: 60px; margin-bottom:10px; background: transparent;"> <img th:src="${'data:image/jpg;base64,'+image}" style="height: 100px; width: 100px;" />
+						</a><p><br/></p>						
+							<th:block th:include="fragments/menulogin :: menu"></th:block>
+
+							<div class="fb-like-box"
+								data-href="https://www.facebook.com/dholpur.info"
+								data-width="250" data-height="300" data-colorscheme="light"
+								data-show-faces="true" data-header="true" data-stream="false"
+								data-show-border="true"></div>
+						</div>
+					</article>
+					<div id="profile_form"></div>
+					<div id="tablediv">
+						<article class="col2 pad_left1">
+							<h3>Add Your Firm</h3>
+							<br />
+							<div class="wrapper under">
+								<form class="form-horizontal" th:object="${organization}"
+									th:action="@{/user/addorg}" method="post">
+									<fieldset>
+										<legend>Enter Organization Basic Information</legend>
+										<div id="u">
+											<span class="label">Organization Name</span> <input
+												type="text" size="40" class="infobox" th:field="*{orgName}" />
+											<p th:if="${#fields.hasErrors('orgName')}"
+												th:errors="*{orgName}" class="error">Organization Name
+												can contain only numeral, character, or _(underscore)</p>
+										</div>
+										<!-- <div id="p">
+										<span class="label">Organization Category</span> <select
+											th:field="*{orgType}" id="organization"
+											onChange="onOrgChange(this)" class="infobox">
+											<option value="0">Select Your Organization Type</option>
+											<option th:each="org : ${orgType}" th:value="${org.cat_id}"
+												th:text="${org.cat_name}">Select Organization
+												Category</option>
+										</select>
+										<p th:if="${#fields.hasErrors('orgType')}"
+											th:errors="*{orgType}">Please select the Organization
+											Category</p>
+									</div> -->
+										<div>
+											<span class="label">Organization Sub Category </span> <select
+												th:field="*{orgSubType}" name="orgsubcat" id="orgsubcat"
+												class="infobox">
+												<option value="0">Select Your Organization Sub Type</option>
+												<option th:each="org : ${orgSubType}"
+													th:value="${org.sub_cat_id}" th:text="${org.sub_cat_name}">Select
+													State</option>
+											</select>
+										</div>
+										<div>
+											<span class="label">Specialty </span> <input type="text"
+												name="orgspeciality" class="infobox" size="40"
+												th:field="*{speciality}" />
+											<p th:if="${#fields.hasErrors('speciality')}"
+												th:errors="*{speciality}" class="error">Enter Specialty</p>
+										</div>
+										<div>
+											<span class="label">Facility </span> <input type="text"
+												name="facility" class="infobox" size="40"
+												th:field="*{facility}" />
+											<p th:if="${#fields.hasErrors('facility')}"
+												th:errors="*{facility}" class="error">Enter Facility</p>
+										</div>
+									</fieldset>
+									<br></br>
+									<fieldset>
+										<legend>Enter Organization Contact Information</legend>
+										<div>
+											<span class="label">Contact Person </span> <input
+												name="contactperson" type="text" class="infobox" size="40"
+												th:field="*{contactPerson}" />
+											<p th:if="${#fields.hasErrors('contactPerson')}"
+												th:errors="*{contactPerson}" class="error">Invalid
+												contact person name</p>
+										</div>
+										<div>
+											<span class="label">Landline Phone </span> <input
+												name="phone" type="text" id="phone" size="30"
+												class="infobox" th:field="*{phone}" />
+											<p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
+												class="error">Enter Valid Phone</p>
+										</div>
+										<div>
+											<span class="label">Mobile </span> <input name="mobile"
+												type="text" class="infobox" size="30" th:field="*{mobile}" />
+											<p th:if="${#fields.hasErrors('mobile')}"
+												th:errors="*{mobile}" class="error">Invalid Mobile
+												Number</p>
+										</div>
+										<div>
+											<span class="label">Email </span> <input name="email"
+												type="text" id="email" size="40" class="infobox"
+												th:field="*{email}" />
+											<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+												class="error">Enter Valid Email</p>
+										</div>
+										<div>
+											<span class="label">Web Site </span> <input name="website"
+												type="text" id="website" size="40" class="infobox"
+												th:field="*{web}" />
+										</div>
+										<div>
+											<span class="label">Address </span>
+											<textarea name="address" class="infobox" cols="30"
+												th:field="*{address}"></textarea>
+											<p th:if="${#fields.hasErrors('address')}"
+												th:errors="*{address}" class="error">Invalid Address</p>
+										</div>
+										<div>
+											<span class="label">State</span> <select th:field="*{state}"
+												id="state" onChange="onstatechange(this)" class="infobox">
+												<option value="0">Select Your State</option>
+												<option th:each="st : ${state}" th:value="${st.state_id}"
+													th:text="${st.state_name}">Select State</option>
+											</select>
+											<p th:if="${#fields.hasErrors('state')}" th:errors="*{state}"
+												class="error">Please select the state</p>
+										</div>
+
+										<div>
+											<span class="label">District </span> <select
+												th:field="*{distt}" id="dist" onChange="ondistchange(this)"
+												class="infobox">
+												<option value="0">Select Your District</option>
+												<option th:each="dis : ${distt}" th:value="${dis.distt_id}"
+													th:text="${dis.distt_name}">Select District</option>
+											</select>
+											<p th:if="${#fields.hasErrors('distt')}" th:errors="*{distt}"
+												class="error">Please select the district</p>
+										</div>
+										<div>
+											<span class="label">City </span> <select th:field="*{city}"
+												id="city" onChange="ondistchange(this)" class="infobox">
+												<option value="0">Select Your city</option>
+												<option th:each="ci : ${city}" th:value="${ci}"
+													th:text="${ci}">Select city</option>
+											</select>
+
+											<p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
+												class="error">Choose Valid City</p>
+										</div>
+										<div>
+											<span class="label">Pin Code </span> <input name="pin"
+												type="text" id="pin" class="infobox" th:field="*{pin}" />
+											<p th:if="${#fields.hasErrors('pin')}" th:errors="*{pin}"
+												class="error">Enter Valid Pin</p>
+										</div>
+										<div>
+											<span class="label">How to reach </span>
+											<textarea name="howtoreach" id="howtoreach" cols="40"
+												class="infobox" th:field="*{howtoreach}"></textarea>
+										</div>
+										<span class="button_position"><input class="button"
+											type="submit" value="Submit" /> </span>
+									</fieldset>
+								</form>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+			<!-- / content -->
+		</div>
+		<div class="block"></div>
+	</div>
+	<div id="templatemo_footer">
+		<th:block th:include="fragments/footer :: footer"></th:block>
+	</div>
+	<th:block th:include="fragments/atharvahost :: host"></th:block>
+</body>
+</html>

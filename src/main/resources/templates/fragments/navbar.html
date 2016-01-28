@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="../../static/css/style.css"
+	th:href="@{/css/style.css}" type="text/css" media="all" />
+</head>
+<body>
+	<div th:fragment="navbar">
+		<ul id="menu">
+			<li><a href="/" class="nav1">Home</a></li>
+			<li><a href="aboutus" id="about" class="nav2">About Us </a></li>
+			<li><a href="#" th:href="@{/user/addorganization}" class="nav3">Add
+					Business</a></li>
+			<li><a href="gallery" id="gallery" class="nav4">Tourist</a></li>
+			<li class="end"><a href="contactus" id="contact" class="nav5">Contact
+					Us</a></li>
+		</ul>
+	</div>
+</body>
+</html>

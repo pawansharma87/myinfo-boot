@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<style>
+.ui-tabs .ui-tabs-nav {
+	background: #8cbd20;
+	width: 260px;
+}
+
+.ui-tabs .ui-tabs-panel /* just in case you want to change the panel */
+	{
+	background: darkmagenta;
+	border-width: 0px 0px 1px 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	margin: 0em 0.2em 0.2em 0.2em;
+	width: 220px;
+	height: 230px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div th:fragment="header">
+			<header>
+				<div class="wrapper">
+					<h1>
+						<a href="index" id="logo">dholpur info</a>
+					</h1>
+					<div class="right">
+						<div class="wrapper">
+							<form id="search" action="" method="post">
+								<div class="bg">
+									<input type="submit" class="submit" value="" /> <input
+										type="text" class="input" />
+								</div>
+							</form>
+						</div>
+						<div class="wrapper"></div>
+					</div>
+				</div>
+				<nav>
+					<th:block th:include="fragments/navbar :: navbar"></th:block>
+				</nav>
+				<article class="col1">
+					<!--      <div id="tabs">
+                            <ul>
+                                <li><a href="#tabs-1">Login</a></li>
+                                <li><a href="#tabs-2">Register</a></li> 
+                            </ul>
+                            <div id="tabs-1">
+                               
+                                <form id="the-form" action="cdlogin" method="post">
+                                    <div class="bg">
+                                        <div class="wrapper">                                             
+                                            <div class="wrapper"><strong>Username</strong><br/><input name="username" data-validation="alphanumeric" data-validation-allowing="-_"/></div>
+                                            <div class="wrapper"><strong>Password</strong><br/><input type="password" class="input" name="password"/></div><br/>
+                                            <div class="wrapper pad_bot1">
+                                                <input type="submit" class="button" value="Submit"/>                                               
+                                            </div>
+                                        </div>							
+                                    </div></form> 
+                            </div>
+                            <div id="tabs-2">
+                                <form id="form_1" action="cdregisteruser" method="post">
+                                    <div class="bg">
+                                        <div class="wrapper">
+                                            <div class="wrapper"><strong>Mobile</strong><br/> <input name="mobile" data-validation="length" data-validation-length="max10" /></div>	
+                                            <div class="wrapper"><strong>Username</strong><br/><input name="username" data-validation="alphanumeric" data-validation-allowing="-_"/></div>
+                                            <div class="wrapper"><strong>Password</strong><br/><input type="password" name="password" data-validation="alphanumeric" data-validation-allowing="-_"/></div>
+                                            <div class="wrapper"><strong>Confirm Password</strong><br/><input type="password" name="repassword" data-validation="alphanumeric" data-validation-allowing="-_"/></div>
+                                            <input type="hidden" name="utype" value="1"/>
+                                            <div class="wrapper pad_bot1">
+                                                <input type="submit" class="button" value="Submit"/>                                               
+                                            </div>                                    </div>							
+                                    </div>    </form>  
+                            </div>
+                        </div>
+-->
+				</article>
+				<article class="col1 pad_left1">
+					<div class="text">
+						<img src="../../static/images/text1.gif"
+							th:src="@{/images/text1.gif}" />
+						<h2>
+							Post Free Add<a href="addorganization_out.jsp" class="button">Click
+								Here</a>
+						</h2>
+						<h3>
+							Select City <select name="city" id="city"
+								onChange="oncitychange(this)">
+								<option value="0">Select Your City</option>
+								<option value="10">Dholpur</option>
+								<option value="11">Bari</option>
+								<option value="12">Baseri</option>
+								<option value="13">RajaKhera</option>
+							</select>
+						</h3>
+					</div>
+				</article>
+				<!-- <div class="img_home">
+					<img src="../../static/images/img.jpg" th:src="@{/images/img.jpg}"
+						height="310" width="300" />
+				</div> -->
+			</header>
+			<!-- <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/products}">Products</a></li>
+                        <li><a href="#" th:href="@{/product/new}">Create Product</a></li>
+                        <li><a href="#" th:href="@{/organization}">Organization</a></li>
+                        <li><a href="#" th:href="@{addorganization}">Add Organization</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav> -->
+		</div>
+	</div>
+</body>
+</html>

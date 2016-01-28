@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="fragments/links :: head"></th:block>
+<link rel="stylesheet" href="../../static/css/hometab.css"
+	th:href="@{/css/hometab.css}" />
+</head>
+<body id="page1">
+	<div class="extra">
+		<div class="main">
+			<!-- header -->
+			<th:block th:include="fragments/headerlogin :: header"></th:block>
+			<!-- / header -->
+			<!-- content -->
+			<section id="content">
+				<article class="col1">
+					<h3>Our Partners</h3>
+					<div class="pad" th:fragment="menu">
+						<th:block th:include="fragments/menulogin :: menu"></th:block>
+
+						<div class="fb-like-box"
+							data-href="https://www.facebook.com/dholpur.info"
+							data-width="250" data-height="300" data-colorscheme="light"
+							data-show-faces="true" data-header="true" data-stream="false"
+							data-show-border="true"></div>
+					</div>
+				</article>
+
+				<div id="profile_form"></div>
+				<div id="tablediv">
+					<article class="col2 pad_left1">
+						<h3>classified Detail</h3>
+						<br />
+						<div class="wrapper under">
+							<fieldset>
+								<legend>Enter classified Basic Information</legend>
+								<div>
+									<span class="label">Room Type </span>
+									<p class="infobox" th:text="${classifieds.roomType}" />
+								</div>
+							</fieldset>
+							<br></br>
+							<fieldset>
+								<legend>Enter classifieds Contact Information</legend>
+								<div id="u">
+									<span class="label">Contact Person</span>
+									<p class="infobox" th:text="${classifieds.contactPerson}" />
+								</div>
+								<div id="u">
+									<span class="label">Mobile</span>
+									<p class="infobox" th:text="${classifieds.mobile}" />
+								</div>
+								<div id="u">
+									<span class="label">Address</span>
+									<p class="infobox" th:text="${classifieds.address}" />
+								</div>
+								<div id="u">
+									<span class="label">City</span>
+									<p class="infobox" th:text="${classifieds.city}" />
+								</div>
+								<div id="u">
+									<span class="label">Distt</span>
+									<p class="infobox" th:text="${classifieds.distt}" />
+								</div>
+								<div id="u">
+									<span class="label">State</span>
+									<p class="infobox" th:text="${classifieds.state}" />
+								</div>
+								<div id="u">
+									<span class="label">Pin</span>
+									<p class="infobox" th:text="${classifieds.pin}" />
+								</div>
+								<div id="u">
+									<span class="label">Description</span>
+									<p class="infobox" th:text="${description}" />
+								</div>
+							</fieldset>
+						</div>
+					</article>
+				</div>
+			</section>
+			<!-- / content -->
+		</div>
+		<div class="block"></div>
+	</div>
+	<div id="templatemo_footer">
+		<th:block th:include="fragments/footer :: footer"></th:block>
+	</div>
+	<th:block th:include="fragments/atharvahost :: host"></th:block>
+</body>
+</html>

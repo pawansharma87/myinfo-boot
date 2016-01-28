@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+ </head>
+<body>
+	<div class="container">
+		<div th:fragment="header">
+			<header>
+				<div class="wrapper">
+					<h1>
+						<a href="index" id="logo">dholpur info</a>
+					</h1>
+					<div class="right">
+						<div class="wrapper">
+							<form id="search" action="" method="post">
+								<div class="bg">
+									<input type="submit" class="submit" value="" /> <input
+										type="text" class="input" />
+								</div>
+							</form>
+							<!-- <div class="bg"></div> -->
+						</div>
+						<div class="wrapper">
+							<nav>
+								<ul id="top_nav">
+									<li></li>
+									<li><a th:href="@{/logout}" class="btn btn-danger">Logout</a></li>
+									<li><a href="help.html">Help</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<nav>
+					<th:block th:include="fragments/navbarlogin :: navbar"></th:block>
+				</nav>
+				<div class="text">
+					<div id="tabs">
+						<ul>
+							<li><a id="tabs1" href="#tabs-1">Room Rent</a></li>
+							<li><a id="tabs2" href="#tabs-2">Plumber/Electrician</a></li>
+							<li><a id="tabs3" href="#tabs-3">Tuter</a></li>
+						</ul>
+						<div id="tabs-1"></div>
+						<div id="tabs-2"></div>
+						<div id="tabs-3"></div>
+					</div>
+				</div>
+			</header>
+			<!-- 
+				<article class="col1">
+					<div class="text">
+						<img src="../../static/images/text1.gif"
+							th:src="@{/images/text1.gif}" />
+						<h2>
+							Post Free Add<a href="addorganization_out.jsp" class="button">Click
+								Here</a>
+						</h2>
+					</div>
+				</article>
+				<article class="col1 pad_left1">
+					<div class="text">
+						<h3>
+							Select City <select name="city" id="city"
+								onChange="oncitychange(this)">
+								<option value="0">Select Your City</option>
+								<option value="10">Dholpur</option>
+								<option value="11">Bari</option>
+								<option value="12">Baseri</option>
+								<option value="13">RajaKhera</option>
+							</select>
+						</h3>
+					</div>
+				</article>-->
+			<div class="img_home">
+<!-- 				<div id="profile_image">
+					<img th:src="${'data:image/jpg;base64,'+image}"
+						style="height: 100px; width: 100px;" />
+				</div>
+				<b th:inline="text"
+					style="font-size: 20px; color: orange; padding-left: 50px;">
+					[[${#httpServletRequest.remoteUser}]]!</b>
+ -->
+			</div>
+			<!-- 			</header>  -->
+			<!-- <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/products}">Products</a></li>
+                        <li><a href="#" th:href="@{/product/new}">Create Product</a></li>
+                        <li><a href="#" th:href="@{/organization}">Organization</a></li>
+                        <li><a href="#" th:href="@{addorganization}">Add Organization</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav> -->
+		</div>
+	</div>
+</body>
+</html>
